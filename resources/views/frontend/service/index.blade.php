@@ -27,7 +27,7 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody> 
                         @foreach ($services as $service )
                             <tr>
                                 <td>#{{$service->order_id}}</td>
