@@ -1,0 +1,99 @@
+ .mobile-tabs{
+        display:none;
+    }
+    
+    .desktop-tabs{
+        display:block;
+    }
+    
+@media only screen and (max-width: 600px) {
+  .elementor-1992 .elementor-element.elementor-element-06ad5aa,
+  .elementor-1992 .elementor-element.elementor-element-2c13396 {
+    padding: 16px;
+  }
+
+  .elementor-icon-list-text {
+    font-size: 16px !important;
+  }
+
+  .elementor-heading-title,
+  .elementor-image-box-title {
+    font-size: 18px !important;
+  }
+
+  .elementor-headline-dynamic-text {
+    font-size: 32px;
+  }
+
+  .elementor-button-text,
+  .elementor-image-box-description {
+    font-size: 16px !important;
+  }
+
+  .elementor-1992
+    .elementor-element.elementor-element-6da9ba5
+    .elementor-button {
+    padding: 0 18px;
+    font-size: 14px;
+  }
+
+  .elementor-1992 .elementor-element.elementor-element-2090ea2 {
+    min-height: auto;
+  }
+  
+  .elementor-headline .elementor-headline-text-wrapper .elementor-headline-size{
+      font-size: 26px;
+  }
+
+  .elementor-element-2090ea2 .e-con-inner {
+    margin: 20px 0px;
+  }
+  .elementor-element-806122f {
+    margin-bottom: 30px;
+  }
+  .elementor-1992 .elementor-element.elementor-element-6c573c5 img {
+    width: 30%;
+  }
+  .elementor-element.elementor-element-14c2736.elementor-widget.elementor-widget-heading
+    .elementor-heading-title,
+  .elementor-image-box-title {
+    font-size: 28px !important;
+  }
+  .elementor-1992 .elementor-element.elementor-element-7ae2a1d {
+    --min-height: 350px;
+  }
+  
+  .elementor-element.elementor-element-570a25d.e-con-full.e-flex.e-con.e-child {
+    padding: 0;
+}
+  
+  .mobile-tabs {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    
+    .mobile-tabs .card {
+      /*border: solid 2px #ff0202;*/
+      padding: 14px;
+      border-radius: 8px;
+      background:#2e2e2e;
+    }
+    
+    .mobile-tabs .card .title {
+      color: red;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    
+    .mobile-tabs .card .desc {
+      font-size: 16px;
+      color:#fff;
+    }
+    
+    .desktop-tabs{
+        display:none;
+    }
+
+
+}

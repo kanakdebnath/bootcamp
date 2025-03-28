@@ -1,0 +1,417 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: "Work Sans", serif;
+
+  height: 100vh; /* Ensure the body covers the full viewport height */
+  background: linear-gradient(#FFFFFF, #E3F2FD);
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional: Keep the gradient fixed */
+}
+
+
+
+* {
+  transition: all 0.3s;
+}
+
+.text-color-main {
+  color: #ec1c23;
+}
+
+.sidebar {
+  position: fixed;
+  width: 320px;
+  top: 0;
+  left: 0;
+}
+
+.sidebar .logo {
+  width: 60%;
+  display: block;
+  margin: auto;
+}
+
+.sidebar .mb-3.pe-5 img.img-fluid {
+  width: 150px;
+}
+
+.sidebar,
+.mobile-sidebar {
+  background: linear-gradient(180deg, #f1f7ff 0%, #fdfeff 82.36%, #ffffff 100%);
+  padding: 25px;
+  height: 100vh;
+}
+
+.mobile-sidebar {
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 250px;
+  position: fixed !important;
+  z-index: 9;
+  overflow: auto;
+  border-right: 1px solid #ccc;
+  visibility: hidden;
+  transition: 0.4s;
+}
+
+.mobile-sidebar .logo {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+.sidebar .profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 48px;
+  border: solid 2px #ec1c23;
+}
+
+.sidebar .profile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sidebar .profile .name {
+  color: #ec1c23;
+}
+
+.sidebar ul,
+.mobile-sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+.sidebar ul li,
+.mobile-sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar li a .small {
+  font-size: 12px;
+}
+
+.sidebar ul li a,
+.mobile-sidebar ul li a {
+  color: #6a707d;
+  text-decoration: none;
+  text-align: left;
+  display: block;
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+.sidebar ul li a i,
+.mobile-sidebar ul li a i {
+  margin-right: 10px;
+  max-width: 16px;
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a:hover,
+.mobile-sidebar ul li a.active,
+.mobile-sidebar ul li a:hover {
+  background: #ec1c23;
+  border-radius: 40px;
+  color: #fff;
+  transition: all 0.4s;
+}
+.mobile-sidebar .close {
+  border: solid 1px #dee3e9;
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-header .menu-icon {
+  border: 0;
+  background-color: transparent;
+}
+.mobile-header {
+  display: none;
+}
+
+.login-box {
+  box-shadow: 0px 10px 40px 0px #00000026;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #fff;
+  max-width: 550px;
+  width: 100%;
+  margin: auto;
+  margin-top: 60px;
+  border: solid 1px #ec1c23;
+}
+
+.login-box label {
+  color: #393f4c;
+  font-size: 12px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+  margin-top: 16px;
+  white-space: nowrap;
+}
+
+.login-box input {
+  border: solid 1px #dee3e9;
+  border-radius: 4px;
+  padding: 11px 16px;
+  width: 100%;
+}
+
+.btn-one {
+  background-color: #ec1c23;
+  color: #fff;
+  border-radius: 4px;
+  padding: 12px 40px;
+  border: solid 2px #ec1c23;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+button.eye-open,
+button.eye-close {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  right: 10px;
+}
+
+.btn-one:hover {
+  background-color: transparent;
+  color: #ec1c23;
+}
+
+/* bottom banner css*/
+.bottom-banner {
+  background: linear-gradient(180deg, #ffefc7 0%, #ffffff 100%);
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.bottom-banner .facebook-box {
+  background-color: #ffffff;
+  /* border: solid 2px #cbcfd8; */
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.bottom-banner .facebook-box .title {
+  color: #151b28;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.bottom-banner .facebook-box a {
+  border: solid 1px #ffe8cc;
+  box-shadow: 4px 4px 60px var(--sds-size-blur-100) #0000000d;
+  border-radius: 4px;
+  height: 48px;
+  padding: 12px 20px;
+  color: #393f4c;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-banner .facebook-box a img {
+  width: 25px;
+}
+
+.box2 {
+  box-shadow: 4px 4px 30px 0px #cbd5e480;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.course-card {
+  box-shadow: 0px 10px 40px 0px #00000026;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #fff;
+  border: solid 1px #ec1c23;
+  position: relative;
+}
+
+.course-card .box {
+  /* background-color: #f6f6f6; */
+  padding: 24px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.course-card img {
+  border-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.course-card .box p a {
+  font-size: 22px;
+  font-weight: 600;
+  color: #151b28;
+  text-decoration: none;
+}
+
+.course-countdown .clock {
+  display: flex;
+  gap: 10px;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  left: auto;
+  right: 20px;
+  bottom: 170px;
+  margin-top: 20px;
+  margin-left: auto;
+}
+
+.course-countdown .clock .label-count {
+  background-color: #ec1c2313;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  min-width: 70px;
+}
+
+.course-countdown .clock .count {
+  font-size: 14px;
+}
+
+.btn-one.disabled {
+  cursor: no-drop;
+  background-color: #ec1c23;
+  opacity: 0.5;
+  color: #fff;
+}
+
+.course-card .box-1 {
+  border-radius: 8px;
+  padding: 18px;
+  border: solid 2px #ec1c23;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.course-card .box-1:hover {
+  margin-top: -20px;
+}
+
+.box-1 p.fs-4 {
+  color: #ec1c23;
+}
+
+.sidebar .accordion-button {
+  color: #6a707d;
+  text-decoration: none;
+  text-align: left;
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+.sidebar .accordion-item {
+  border: 0;
+}
+.sidebar ul li button i {
+  margin-right: 10px;
+  max-width: 16px;
+}
+
+.sidebar .accordion-button:not(.collapsed) {
+  background: #f8fbff;
+}
+
+.sidebar .accordion-button {
+  background: #f8fbff;
+}
+
+.sidebar .accordion-button:focus {
+  box-shadow: none;
+  background: #f8fbff;
+}
+
+.title-bg {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
+
+
+
+/* Responsive css or Media query */
+
+@media only screen and (max-width: 600px) {
+  .mobile-header {
+    display: flex;
+  }
+  .sidebar {
+    display: none;
+  }
+  .login-box {
+    margin-top: 30px;
+  }
+  .bottom-banner {
+    background: none;
+    padding: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .bottom-banner .facebook-box {
+    background-color: #ffffff;
+    border: solid 1px #cbcfd8;
+    padding: 24px;
+  }
+  .text-box {
+    background: linear-gradient(180deg, #ffefc7 0%, #ffffff 100%);
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  main {
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-x: hidden;
+  }
+  .btn-one {
+    padding: 8px 20px;
+  }
+  .bottom-banner .facebook-box a {
+    width: 100% !important;
+  }
+  .course-card .box {
+    padding: 18px;
+  }
+  .course-countdown .clock .count {
+    font-size: 14px;
+  }
+  .course-countdown .clock .label-count {
+    padding: 4px;
+    font-weight: 600;
+    font-size: 12px;
+    min-width: 70px;
+  }
+
+  .btn-one.w-50 {
+    width: 100% !important;
+  }
+}
