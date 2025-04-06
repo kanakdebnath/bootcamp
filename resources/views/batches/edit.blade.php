@@ -57,6 +57,17 @@
                         </div>
 
                         <div class="form-group">
+                            {!! Form::label('status', 'Update Status') !!}
+
+                            {!! Form::select('status', [
+                                    'Pending' => 'Pending',
+                                    'Active' => 'Active',
+                                    'InActive' => 'InActive'
+                                ], $batch->status, ['class' => 'form-select', 'id' => 'statusSelect', 'aria-label' => 'Default select example']) !!}
+
+                        </div>
+
+                        <div class="form-group">
                             {!! Form::label('description', 'Description') !!}
                             {!! Form::textarea('description', null, ['class' => 'form-control summernote']) !!}
                         </div>
@@ -104,7 +115,7 @@
             height: 300,  // Set editor height
             minHeight: 200, // Set minimum height
             maxHeight: 500, // Set maximum height
-            focus: true,    // Focus the editor on load
+            focus: false,    // Focus the editor on load
             placeholder: 'Write your description here...',
             toolbar: [
                 ['style', ['bold', 'italic', 'underline', 'clear']],

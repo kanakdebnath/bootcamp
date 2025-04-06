@@ -69,7 +69,8 @@ class Kernel extends HttpKernel
 
         '2fa' => \App\Http\Middleware\LoginSecurityMiddleware::class,
         'is_admin' => \App\Http\Middleware\AdminAuth::class,
+        'is_employee' => \App\Http\Middleware\EmployeeAuth::class,
         'payment_check' => \App\Http\Middleware\PaymentCheck::class,
-       
+
     ];
 }

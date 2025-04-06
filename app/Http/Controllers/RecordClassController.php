@@ -161,6 +161,7 @@ class RecordClassController extends AppBaseController
         $model->batch_id = $request->batch;
         $model->date = $date;
         $model->time = $time;
+        $model->status = $request->status;
         $model->main_date_time = $main_date_time;
         $model->password = $request->password;
         $model->link = $request->link;

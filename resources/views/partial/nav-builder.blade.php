@@ -114,26 +114,6 @@ $settings = Utility::settings();
                     </li>
 
                 @endcan
-<!-- 
-                @can('manage-user')
-                    <li class="dash-item dash-hasmenu {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
-                        <a class="dash-link" href="{{ route('batches.index') }}">
-                            <span class="dash-micon"><i class="ti ti-tag"></i></span>
-                            <span class="dash-mtext custom-weight">{{ __('Support Request') }}</span>
-                        </a>
-                    </li>
-
-                @endcan
-
-                @can('manage-user')
-                    <li class="dash-item dash-hasmenu {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
-                        <a class="dash-link" href="{{ route('batches.index') }}">
-                            <span class="dash-micon"><i class="ti ti-tag"></i></span>
-                            <span class="dash-mtext custom-weight">{{ __('Service Request') }}</span>
-                        </a>
-                    </li>
-
-                @endcan -->
 
                 @can('manage-category')
                     <li class="dash-item dash-hasmenu {{ request()->is('admin/category') || request()->is('admin/category/*') ? 'active' : '' }}">
@@ -159,7 +139,27 @@ $settings = Utility::settings();
                     <li class="dash-item dash-hasmenu {{ request()->is('admin/supports') || request()->is('admin/supports/*') ? 'active' : '' }}">
                         <a class="dash-link" href="{{ route('supports.index') }}">
                             <span class="dash-micon"><i class="ti ti-tag"></i></span>
-                            <span class="dash-mtext custom-weight">{{ __('Support List') }}</span>
+                            <span class="dash-mtext custom-weight">{{ __('Support Request') }}</span>
+                        </a>
+                    </li>
+
+                @endcan
+
+                @can('manage-service')
+                    <li class="dash-item dash-hasmenu {{ request()->is('admin/service-request') || request()->is('admin/service-request/*') ? 'active' : '' }}">
+                        <a class="dash-link" href="{{ route('service-request.index') }}">
+                            <span class="dash-micon"><i class="ti ti-tag"></i></span>
+                            <span class="dash-mtext custom-weight">{{ __('Service Request') }}</span>
+                        </a>
+                    </li>
+
+                @endcan
+
+                @can('manage-task')
+                    <li class="dash-item dash-hasmenu {{ request()->is('admin/task') || request()->is('admin/task/*') ? 'active' : '' }}">
+                        <a class="dash-link" href="{{ route('task.index') }}">
+                            <span class="dash-micon"><i class="ti ti-tag"></i></span>
+                            <span class="dash-mtext custom-weight">{{ __('Tasks') }}</span>
                         </a>
                     </li>
 
@@ -173,7 +173,7 @@ $settings = Utility::settings();
                             <span class="dash-mtext custom-weight">{{ __('Roles') }}</span>
                         </a>
                     </li>
-                @endcan 
+                @endcan
                 @can('manage-permission')
                     <li class="dash-item dash-hasmenu {{ request()->is('permission*') ? 'active' : '' }}">
                         <a class="dash-link" href="{{ route('permission.index') }}">
@@ -189,7 +189,7 @@ $settings = Utility::settings();
                             <span class="dash-mtext custom-weight">{{ __('Modules') }}</span>
                         </a>
                     </li>
-                @endcan 
+                @endcan
                 @role('admin')
                     <li class="dash-item dash-hasmenu {{ request()->is('settings*') ? 'active' : '' }}">
                         <a class="dash-link" href="{{ route('settings.index') }}">

@@ -49,11 +49,16 @@
                                 </div>
 
                                 <div class="form-group">
+                                    {{ Form::label('employee', __('Select Employee'), ['class' => 'col-form-label']) }}
+                                    {!! Form::select('employee_id', $users, null, ['class' => 'form-control select2', 'id' => 'employee', 'placeholder' => __('Select Employee')]) !!}
+                                </div>
+
+                                <div class="form-group">
                                     {{ Form::label('link', __('Class Link'),['class' => 'col-form-label']) }}
                                     {!! Form::text('link', null, ['placeholder' => __('Class Link'), 'class' => 'form-control']) !!}
                                 </div>
 
-                                
+
                                 <div class="form-group">
                                     {{ Form::label('zoom_id', __('Zoom ID'),['class' => 'col-form-label']) }}
                                     {!! Form::text('zoom_id', null, ['placeholder' => __('Zoom ID'), 'class' => 'form-control']) !!}
@@ -119,12 +124,17 @@
             allowClear: true
         });
 
-        
+        $('#employee').select2({
+            placeholder: "Select Employee",
+            allowClear: true
+        });
+
+
         $('.summernote').summernote({
             height: 300,  // Set editor height
             minHeight: 200, // Set minimum height
             maxHeight: 500, // Set maximum height
-            focus: true,    // Focus the editor on load
+            focus: false,    // Focus the editor on load
             placeholder: 'Write your description here...',
             toolbar: [
                 ['style', ['bold', 'italic', 'underline', 'clear']],

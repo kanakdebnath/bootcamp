@@ -24,6 +24,9 @@ class ClassDataTable extends DataTable
             ->editColumn('batch_id', function (LiveClass $class) {
                 return  $class->batch->title;
             })
+            ->editColumn('main_date_time', function (LiveClass $class) {
+                return  \Carbon\Carbon::parse($class->main_date_time)->format('F j, Y h:i A');
+            })
             ->setRowAttr([
                 'batch' => function (LiveClass $class) {
                     return $class->batch->title;
@@ -94,9 +97,9 @@ class ClassDataTable extends DataTable
             Column::make('id'),
             Column::make('topics'),
             Column::make('link'),
-            Column::make('date'),
-            Column::make('time'),
+            Column::make('main_date_time')->title('Date'),
             Column::make('batch_id')->title('Batch'),
+            Column::make('status'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

@@ -25,9 +25,9 @@ class UsersDataTable extends DataTable
                 if($user->status == 'active'){
                    return 'Active';
                 }elseif($user->status == 'upcoming'){
-                  return  'Upcoming Course';   
+                  return  'Upcoming Course';
                 }elseif($user->status == 'expired'){
-                   return '1st Course Complete';   
+                   return '1st Course Complete';
                 }else{
                     return '-';
                 }
@@ -126,6 +126,7 @@ class UsersDataTable extends DataTable
             Column::make('id'),
             Column::make('name'),
             Column::make('email'),
+            Column::make('phone'),
             Column::make('created_at'),
             Column::computed('action')
                 ->exportable(false)

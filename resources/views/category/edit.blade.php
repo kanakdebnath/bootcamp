@@ -27,6 +27,17 @@
                             {!! Form::text('name', null, ['placeholder' => __('Service Category'), 'class' => 'form-control']) !!}
                         </div>
 
+                        <div class="form-group">
+                            {!! Form::label('status', 'Update Status') !!}
+
+                            {!! Form::select('status', [
+                                    'Pending' => 'Pending',
+                                    'Active' => 'Active',
+                                    'InActive' => 'InActive'
+                                ], $category->status, ['class' => 'form-select', 'id' => 'statusSelect', 'aria-label' => 'Default select example']) !!}
+
+                        </div>
+
                     </div>
                     <div class="card-footer">
                         <div class="float-end">

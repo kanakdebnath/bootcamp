@@ -111,6 +111,7 @@ class ServiceCategoryController extends AppBaseController
         }
 
         $model->name = $request->name;
+        $model->status = $request->status;
         $model->save();
 
         Session::flash('success', 'Service Category updated successfully.');

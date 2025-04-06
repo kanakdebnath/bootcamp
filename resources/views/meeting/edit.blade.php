@@ -75,6 +75,8 @@
                                     {!! Form::text('zoom_pass', null, ['placeholder' => __('Zoom Passcode'), 'class' => 'form-control']) !!}
                                 </div>
 
+
+
                                 <!-- Class One Date Field -->
 
                                 <div class="form-group">
@@ -87,6 +89,18 @@
                                             <i class="fas fa-calendar-alt"></i>
                                         </span>
                                     </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {!! Form::label('status', 'Update Status') !!}
+
+                                    {!! Form::select('status', [
+                                            'ReSchedule' => 'ReSchedule',
+                                            'Not Started' => 'Not Started',
+                                            'Started' => 'Started',
+                                            'Complete' => 'Complete'
+                                        ], $meeting->status, ['class' => 'form-select', 'id' => 'statusSelect', 'aria-label' => 'Default select example']) !!}
+
                                 </div>
 
                                 <div class="form-group">
@@ -177,7 +191,7 @@
             height: 300,  // Set editor height
             minHeight: 200, // Set minimum height
             maxHeight: 500, // Set maximum height
-            focus: true,    // Focus the editor on load
+            focus: false,    // Focus the editor on load
             placeholder: 'Write your description here...',
             toolbar: [
                 ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -199,8 +213,8 @@
                 const datetime = input.dataset.datetime;
 
                 // Ensure datetime is a valid string before creating a Date object
-                const meetingDate = datetime && datetime !== '' 
-                    ? new Date(datetime) 
+                const meetingDate = datetime && datetime !== ''
+                    ? new Date(datetime)
                     : null;
 
                 // Optional: Check if the date is valid

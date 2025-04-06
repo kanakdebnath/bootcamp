@@ -224,6 +224,7 @@ class MeetingController extends AppBaseController
         $model->main_date_time = $main_date_time;
         $model->date = $date;
         $model->time = $time;
+        $model->status = $request->status;
         $model->link = $request->link;
         $model->zoom_id = $request->zoom_id;
         $model->zoom_pass = $request->zoom_pass;
@@ -257,5 +258,22 @@ class MeetingController extends AppBaseController
         Session::flash('success', 'Meeting deleted successfully.');
 
         return redirect(route('meetings.index'));
+    }
+
+    public function status_change(Request $request)
+    {
+
+        $request->validate([
+            'status' => 'required',
+            'note' => 'required',
+        ]);
+
+        $meeting = Meeting::find($request->id);
+        $meeting->status = $request->status;
+        $meeting->note = $request->note;
+        $meeting->save();
+
+        return response()->json(['message' => 'Meeting Status Change successfully.']);
+
     }
 }

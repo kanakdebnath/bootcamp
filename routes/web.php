@@ -19,6 +19,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LoginSecurityController;
 use App\Http\Controllers\frontend\SupportController;
 use App\Http\Controllers\frontend\FrontUserController;
+use App\Http\Controllers\AdminServiceRequestController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\frontend\ServiceRequestController;
 
 /*
@@ -160,6 +162,7 @@ Route::group(['middleware' => ['auth', '2fa','is_admin'], 'prefix' => 'admin'], 
 
     Route::get('/get-user-data/{batchId}', [BatchesController::class, 'getUserData'])->name('get.user.data');
     Route::resource('batches', App\Http\Controllers\BatchesController::class);
+
     Route::resource('meetings', App\Http\Controllers\MeetingController::class);
     Route::resource('classes', App\Http\Controllers\ClassController::class);
     Route::resource('category', App\Http\Controllers\ServiceCategoryController::class);
@@ -168,5 +171,25 @@ Route::group(['middleware' => ['auth', '2fa','is_admin'], 'prefix' => 'admin'], 
     Route::any('/supports/reply/{id}', [App\Http\Controllers\AdminSupportController::class, 'reply'])->name('supports.reply');
     Route::any('/supports/status-change', [App\Http\Controllers\AdminSupportController::class, 'status_change'])->name('supports.status_change');
     Route::resource('supports', App\Http\Controllers\AdminSupportController::class);
+
+    Route::resource('service-request', AdminServiceRequestController::class);
+    Route::resource('task', App\Http\Controllers\TaskController::class);
 });
+
+
+
+Route::group(['middleware' => ['auth','is_employee'], 'prefix' => 'employee'], function () {
+
+    Route::get('/dashboard', [EmployeeController::class, 'index'])->name('employee.dashboard');
+
+    Route::get('/meeting', [EmployeeController::class, 'meeting'])->name('employee.meeting');
+    Route::get('/meeting/show/{id}', [EmployeeController::class, 'meeting_show'])->name('employee.meeting.show');
+    Route::get('/classes', [EmployeeController::class, 'class'])->name('employee.classes');
+    Route::get('/task', [EmployeeController::class, 'task'])->name('employee.task');
+
+});
+
+Route::any('/meetings/status-change', [App\Http\Controllers\MeetingController::class, 'status_change'])->name('meetings.status_change');
+Route::any('/classes/status-change', [App\Http\Controllers\ClassController::class, 'status_change'])->name('classes.status_change');
+Route::any('/task/status-change', [App\Http\Controllers\TaskController::class, 'status_change'])->name('task.status_change');
 

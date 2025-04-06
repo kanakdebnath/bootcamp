@@ -16,7 +16,7 @@
     <!-- [ Main Content ] start -->
     <div class="row">
         <div class="section-body">
-            <div class="col-md-4 m-auto">
+            <div class="col-md-8 m-auto">
                 <div class="card ">
                     <div class="card-header">
                         <h5> {{ __('Edit User') }}</h5>
@@ -30,6 +30,10 @@
                         <div class="form-group">
                             {{ Form::label('email', __('Email'), ['class' => 'col-form-label']) }}
                             {!! Form::text('email', null, ['placeholder' => __('Email'), 'class' => 'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {{ Form::label('phone', __('Phone'),['class' => 'col-form-label']) }}
+                            {!! Form::text('phone', null, ['placeholder' => __('Phone'), 'class' => 'form-control']) !!}
                         </div>
                         <div class="form-group ">
                             {{ Form::label('role', __('Role'), ['class' => 'col-form-label']) }}

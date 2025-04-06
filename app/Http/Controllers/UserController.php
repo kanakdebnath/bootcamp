@@ -47,6 +47,7 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
+            'phone' => 'required|unique:users,phone',
             'password' => 'required|same:confirm-password',
             'roles' => 'required'
         ]);
@@ -56,6 +57,7 @@ class UserController extends Controller
             [
                 'name' => $request['name'],
                 'email' => $request['email'],
+                'phone' => $request['phone'],
                 'password' => Hash::make($request['password']),
                 'confirm_password' => 'required|same:password',
                 'type' => $role_r->name,
@@ -101,10 +103,12 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
+
         // return redirect()->back()->with('warning', __('This Action Is Not Allowed Because Of Demo Mode.'));
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
+            'phone' => 'required|unique:users,phone,' . $id,
 
             'roles' => 'required'
         ]);
@@ -112,7 +116,10 @@ class UserController extends Controller
         $input = $request->all();
 
         $user = User::find($id);
-        $user->update($input);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->save();
         DB::table('model_has_roles')->where('model_id', $id)->delete();
 
         $user->assignRole($request->input('roles'));

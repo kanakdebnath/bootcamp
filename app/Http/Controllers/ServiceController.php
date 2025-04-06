@@ -145,13 +145,14 @@ class ServiceController extends AppBaseController
 
             $model->photo = $imageName ?? null;
         }
-        
+
         $model->title = $request->title;
         $model->category_id = $request->category_id;
         $model->description = $request->description;
         $model->price = $request->price;
         $model->discount_price = $request->discount_price;
         $model->delivery_time = $request->delivery_time;
+        $model->status = $request->status;
         $model->save();
 
         Session::flash('success', 'Service Update successfully.');

@@ -64,6 +64,17 @@
                         </div>
 
                         <div class="form-group">
+                            {!! Form::label('status', 'Update Status') !!}
+
+                            {!! Form::select('status', [
+                                    'Pending' => 'Pending',
+                                    'Active' => 'Active',
+                                    'InActive' => 'InActive'
+                                ], $service->status, ['class' => 'form-select', 'id' => 'statusSelect', 'aria-label' => 'Default select example']) !!}
+
+                        </div>
+
+                        <div class="form-group">
                             {!! Form::label('description', 'Description') !!}
                             {!! Form::textarea('description', null, ['class' => 'form-control summernote']) !!}
                         </div>

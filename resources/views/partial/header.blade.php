@@ -43,14 +43,20 @@ $profile = asset(Storage::url('uploads/avatar/'));
                     </span>
                 </a>
                 <div class="dropdown-menu dash-h-dropdown dropdown-menu-end">
+                    @if (auth()->user()->admin_type != 'employee')
                     <a href="{{ route('profile') }}" class="dropdown-item">
                         <i class="ti ti-user"></i> <span>{{ __('Profile') }}</span>
                     </a>
+                    @endif
+
                     @role('admin')
+                    @if (auth()->user()->admin_type != 'employee')
                     <a class="dropdown-item" href="{{ route('settings.index') }}">
                         <i class="ti ti-settings"></i>
                             <span>{{ __('Settings') }}</span>
                     </a>
+                    @endif
+
                     @endrole
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();"

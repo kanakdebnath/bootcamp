@@ -42,7 +42,8 @@ class ClassController extends AppBaseController
     public function create()
     {
         $batches = Batch::where('status','Active')->pluck('title', 'id')->toArray();
-        return view('class.create',compact('batches'));
+        $users = User::where('type','admin')->where('id','!=',1)->pluck('name', 'id')->toArray();
+        return view('class.create',compact('batches','users'));
     }
 
 
@@ -82,6 +83,7 @@ class ClassController extends AppBaseController
         $model->time = $time;
         $model->link = $request->link;
         $model->zoom_id = $request->zoom_id;
+        $model->employee_id = $request->employee_id;
         $model->zoom_pass = $request->zoom_pass;
         $model->save();
 
@@ -121,7 +123,8 @@ class ClassController extends AppBaseController
     {
         $class = LiveClass::find($id);
         $batches = Batch::where('status','Active')->pluck('title', 'id')->toArray();
-        return view('class.edit',compact('batches','class'));
+        $employees = User::where('type','admin')->where('id','!=',1)->pluck('name', 'id')->toArray();
+        return view('class.edit',compact('batches','class','employees'));
     }
 
     /**
@@ -171,9 +174,11 @@ class ClassController extends AppBaseController
         $model->description = $request->description;
         $model->date = $date;
         $model->time = $time;
+        $model->status = $request->status;
         $model->main_date_time = $main_date_time;
         $model->link = $request->link;
         $model->zoom_id = $request->zoom_id;
+        $model->employee_id = $request->employee_id;
         $model->zoom_pass = $request->zoom_pass;
         $model->save();
 
@@ -205,5 +210,23 @@ class ClassController extends AppBaseController
         Session::flash('success', 'Live Class deleted successfully.');
 
         return redirect(route('classes.index'));
+    }
+
+
+    public function status_change(Request $request)
+    {
+
+        $request->validate([
+            'status' => 'required',
+            'note' => 'required',
+        ]);
+
+        $class = LiveClass::find($request->id);
+        $class->status = $request->status;
+        $class->note = $request->note;
+        $class->save();
+
+        return response()->json(['message' => 'Live Class Status Change successfully.']);
+
     }
 }

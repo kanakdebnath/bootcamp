@@ -55,10 +55,6 @@ div.dataTables_wrapper div.dataTables_filter {
     float: right;
 }
 
-.dataTables_scrollBody
-{
- overflow: unset !important;
-}
 
 .dash-footer {
     margin-left: 13% !important;

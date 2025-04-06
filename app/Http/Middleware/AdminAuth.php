@@ -19,7 +19,12 @@ class AdminAuth
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->type == 'admin') {
-            return $next($request);
+            if(Auth::user()->admin_type != 'employee'){
+                return $next($request);
+            }else{
+                return redirect()->route('employee.dashboard');
+            }
+
         }else if (Auth::user()->type == 'user') {
             return redirect()->route('user.dashboard')->with('success','Login Successfully');
         }else{

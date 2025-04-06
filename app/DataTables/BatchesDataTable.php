@@ -88,6 +88,7 @@ class BatchesDataTable extends DataTable
             Column::make('title'),
             Column::make('created_at'),
             Column::make('end_date'),
+            Column::make('status'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

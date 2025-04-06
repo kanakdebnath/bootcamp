@@ -29,6 +29,9 @@ class MeetingDataTable extends DataTable
             ->editColumn('employee_id', function (Meeting $meeting) {
                 return  $meeting->employee? $meeting->employee->name :"";
             })
+            ->editColumn('main_date_time', function (Meeting $meeting) {
+                return  \Carbon\Carbon::parse($meeting->main_date_time)->format('F j, Y h:i A');
+            })
             ->setRowAttr([
                 'batch' => function (Meeting $meeting) {
                     return $meeting->batch->title;
@@ -102,8 +105,7 @@ class MeetingDataTable extends DataTable
             Column::make('id'),
             Column::make('topics'),
             Column::make('link'),
-            Column::make('date'),
-            Column::make('time'),
+            Column::make('main_date_time')->title('Date'),
             Column::make('batch_id')->title('Batch'),
             Column::make('user_id')->title('User'),
             Column::make('employee_id')->title('Employee'),

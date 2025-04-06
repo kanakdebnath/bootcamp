@@ -135,6 +135,7 @@ class BatchesController extends AppBaseController
         $model->description = $request->description;
         $model->start_date = now();
         $model->end_date = $request->end_date;
+        $model->status = $request->status;
         $model->save();
 
         $batch_users = BatchUser::where('batch_id',$id)->get();

@@ -51,11 +51,16 @@
                         </div>
 
                         <div class="form-group">
+                            {{ Form::label('employee', __('Select Employee'), ['class' => 'col-form-label']) }}
+                            {!! Form::select('employee_id', $employees, $class->employee_id, ['class' => 'form-control select2', 'id' => 'employee', 'placeholder' => __('Select Employee')]) !!}
+                        </div>
+
+                        <div class="form-group">
                             {{ Form::label('link', __('Class Link'),['class' => 'col-form-label']) }}
                             {!! Form::text('link', null, ['placeholder' => __('Class Link'), 'class' => 'form-control']) !!}
                         </div>
 
-                        
+
                         <div class="form-group">
                             {{ Form::label('zoom_id', __('Zoom ID'),['class' => 'col-form-label']) }}
                             {!! Form::text('zoom_id', null, ['placeholder' => __('Zoom ID'), 'class' => 'form-control']) !!}
@@ -78,6 +83,17 @@
                                             <i class="fas fa-calendar-alt"></i>
                                         </span>
                                     </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {!! Form::label('status', 'Update Status') !!}
+
+                                    {!! Form::select('status', [
+                                            'Not Started' => 'Not Started',
+                                            'Started' => 'Started',
+                                            'Complete' => 'Complete'
+                                        ], $class->status, ['class' => 'form-select', 'id' => 'statusSelect', 'aria-label' => 'Default select example']) !!}
+
                                 </div>
 
                         <div class="form-group">
@@ -123,12 +139,17 @@
             allowClear: true
         });
 
+        $('#employee').select2({
+            placeholder: "Select Employee",
+            allowClear: true
+        });
+
 
         $('.summernote').summernote({
             height: 300,  // Set editor height
             minHeight: 200, // Set minimum height
             maxHeight: 500, // Set maximum height
-            focus: true,    // Focus the editor on load
+            focus: false,    // Focus the editor on load
             placeholder: 'Write your description here...',
             toolbar: [
                 ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -150,8 +171,8 @@
                 const datetime = input.dataset.datetime;
 
                 // Ensure datetime is a valid string before creating a Date object
-                const meetingDate = datetime && datetime !== '' 
-                    ? new Date(datetime) 
+                const meetingDate = datetime && datetime !== ''
+                    ? new Date(datetime)
                     : null;
 
                 // Optional: Check if the date is valid
